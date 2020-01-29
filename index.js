@@ -65,27 +65,65 @@
 // console.log(numberOne + " % " + numberTwo + " = " + result)
 
 // Mengubah Tipe data string to number
-var numString = "12"
-var numInteger = parseInt(numString)
+// var numString = "12"
+// var numInteger = parseInt(numString)
 
-// console.log(typeof(numString))
-// console.log(typeof(numInteger))
+// // console.log(typeof(numString))
+// // console.log(typeof(numInteger))
 
-var result = "28" + 2 // "282"
-console.log(result)
+// var result = "28" + 2 // "282"
+// console.log(result)
 
-result = "28" - 8 // 20
-console.log(result)
+// result = "28" - 8 // 20
+// console.log(result)
 
-result = "28" * 8 // 224
-console.log(result)
+// result = "28" * 8 // 224
+// console.log(result)
 
-result = "28" / 8 // 3.5
-console.log(result)
+// result = "28" / 8 // 3.5
+// console.log(result)
+
+// STRINGS
 
 
+// Mengetahui jumlah karakter pada teks
+// console.log(text.length)
 
+// Mencari index suatu kata didalam teks
+// index dimulai dari nol
+// console.log(text.indexOf('at'))
+// Jika tidak ditemukan akan me-return -1
+// console.log(text.indexOf('attta'))
 
+// Mengambil kata dari index 4 sebanyak 6
+// karakter
+// console.log(text.substr(4, 6))
+
+// Ambil kata dari index 4 - 10
+// index ke 10 tidak termasuk
+// console.log(text.slice(4, 10));
+
+var text = "Fun day at summarecon"
+
+// Mensplit sebuah text berdasarkan karakter tertentu
+// Default split = tidak ada
+// console.log(text.split())
+// console.log(text.split(" "))
+// console.log(text.split("a"))
+
+var x = 'summarecon'
+var y = 'SUMMARECON'
+var z = 12345
+
+// Menggubah menjadi kapital
+console.log(x.toUpperCase())
+
+// Mengubah menjadi huruf kecil
+console.log(x.toLowerCase())
+
+// Mengubah menjadi string
+console.log(z)
+console.log(z.toString())
 
 
 // SHORTCUT
