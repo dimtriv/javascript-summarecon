@@ -111,19 +111,178 @@ var text = "Fun day at summarecon"
 // console.log(text.split(" "))
 // console.log(text.split("a"))
 
-var x = 'summarecon'
+var x = 'summasrescons'
 var y = 'SUMMARECON'
 var z = 12345
 
 // Menggubah menjadi kapital
-console.log(x.toUpperCase())
+// console.log(x.toUpperCase())
 
 // Mengubah menjadi huruf kecil
-console.log(x.toLowerCase())
+// console.log(x.toLowerCase())
 
 // Mengubah menjadi string
-console.log(z)
-console.log(z.toString())
+// console.log(z)
+// console.log(z.toString())
+
+// jika sudah menemukan satu karakter yang match
+// console.log(x.replace('s', 'S'))
+
+// Mengubah secara global (semua) karakter yg match
+// console.log(x.replace(/s/g, 'S'))
+
+// Mengubah menjadi integer
+// console.log(parseInt('123')); // 123
+// Mengubah menjadi float
+// console.log(parseFloat('123')); // 123
+
+// Mengubah menjadi integer
+// Menghilangkan bilangan desimal, bkn dibulatkan
+// console.log(parseInt('1234.5678')) // 1234
+// Mengubah menjadi float
+// console.log(parseFloat('1234.5678')); //1234.5678
+
+// Mengubah menjadi integer
+// console.log(parseInt('Halo Dunia')) // NaN
+// Mengubah menjadi float
+// console.log(parseFloat('Halo Dunia')); // NaN
+
+// NaN = Not a Number
+
+// Arithmatic
+
+// var numOne = 10
+// var numTwo = 5
+
+// console.log(numOne + ' + ' + numTwo + ' =', numOne + numTwo)
+// console.log(numOne + ' + ' + numTwo + ' = ' + (numOne + numTwo))
+
+// console.log(numOne + ' - ' + numTwo + ' =', numOne - numTwo)
+// console.log(numOne + ' * ' + numTwo + ' =', numOne * numTwo)
+// console.log(numOne + ' / ' + numTwo + ' =', numOne / numTwo)
+// console.log(numOne + ' % ' + numTwo + ' =', numOne % numTwo)
+
+// var numOne = 10
+// var numTwo = 5
+// var numThree = 24
+// var numSpecial = 99
+
+// var result = numOne + 3 // 13
+// numOne = result
+
+// numTwo = numTwo + 15 // 20
+// // numTwo += 15
+
+// // numThree = numThree + 3
+// numThree += 3 // 27
+
+// // Increment
+// // numSpecial += 1
+// numSpecial++ // 100
+// numSpecial++ // 101
+// numSpecial++ // 102
+// numSpecial++ // 103
+// numSpecial++ // 104
+
+// // Decrement
+// // numSpecial -= 1
+// numSpecial-- // 103
+
+// console.log(numSpecial) // 99
+
+// Math Object
+
+// console.log(Math.PI)
+
+// Membuat bilangan menjadi positif (absolute)
+// console.log(Math.abs(-4.7))
+
+// Pangkat bilangan (power)
+// Delapan pangkat tiga
+// console.log(Math.pow(8, 3));
+
+// Akar dua bilangan (square root)
+// console.log(Math.sqrt(64));
+
+// Akar tiga bilangan (cubic root)
+// console.log(Math.cbrt(8));
+
+// Bulatkan angka secara matematika
+// console.log(Math.round(4.7)); // 5
+
+// Bulatkan angka secara matematika
+// console.log(Math.round(4.4)); // 4
+
+// Dibulatkan ke bawah
+// console.log(Math.floor(4.7)); // 4
+
+// Dibulatkan ke atas
+// console.log(Math.ceil(4.4)); // 5
+
+// Random 0 (incl) - 1 (excl)
+// console.log(Math.random());
+
+// Mencari nilai maximum
+// console.log(Math.max(1,3,5));
+
+// Mencari nilai minimum
+// console.log(Math.min(1,3,5));
+
+// random 1 - 10
+// console.log(parseInt((Math.random() * 10) + 1))
+
+// Date Object
+// Mendapatkan info waktu
+
+// var time = Date()
+// console.log(typeof(time))
+
+// var time = new Date()
+// console.log(typeof(time))
+
+
+
+// console.log(time.getHours())
+// console.log(time.getMinutes())
+// console.log(time.getSeconds())
+
+// Hari dimulai : 1
+// console.log(time.getDay())
+
+// Bulan dimulai : 0
+// console.log(time.getMonth())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // SHORTCUT
