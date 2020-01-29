@@ -46,29 +46,42 @@
 // )
 
 // Artimatik
-var numberOne = 10
-var numberTwo = 5
+// var numberOne = 10
+// var numberTwo = 5
 
-var result = numberOne + numberTwo
-console.log(numberOne + " + " + numberTwo + " = " + result)
+// var result = numberOne + numberTwo
+// console.log(numberOne + " + " + numberTwo + " = " + result)
 
-result = numberOne - numberTwo
-console.log(numberOne + " - " + numberTwo + " = " + result)
+// result = numberOne - numberTwo
+// console.log(numberOne + " - " + numberTwo + " = " + result)
 
-result = numberOne * numberTwo
-console.log(numberOne + " * " + numberTwo + " = " + result)
+// result = numberOne * numberTwo
+// console.log(numberOne + " * " + numberTwo + " = " + result)
 
-result = numberOne / numberTwo
-console.log(numberOne + " / " + numberTwo + " = " + result)
+// result = numberOne / numberTwo
+// console.log(numberOne + " / " + numberTwo + " = " + result)
 
-result = numberOne % numberTwo
-console.log(numberOne + " % " + numberTwo + " = " + result)
+// result = numberOne % numberTwo
+// console.log(numberOne + " % " + numberTwo + " = " + result)
 
+// Mengubah Tipe data string to number
+var numString = "12"
+var numInteger = parseInt(numString)
 
-console.log('First line')
-console.log('Second line')
-console.log('Third line')
+// console.log(typeof(numString))
+// console.log(typeof(numInteger))
 
+var result = "28" + 2 // "282"
+console.log(result)
+
+result = "28" - 8 // 20
+console.log(result)
+
+result = "28" * 8 // 224
+console.log(result)
+
+result = "28" / 8 // 3.5
+console.log(result)
 
 
 
