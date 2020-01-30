@@ -44,8 +44,8 @@
 // Akan mencocokan data / value / nilai 
 // yang ada pada switch dan case
 var rain = 'gerimis'
-switch ('Gerimis') {
-    case false:
+switch (false) {
+    case 6 < 3:
         console.log("Hujan deras nih")
         break;
 

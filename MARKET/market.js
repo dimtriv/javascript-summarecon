@@ -29,3 +29,27 @@ alert(
     'Orange : ' + orange + ' x ' + priceOrange + ' = ' + totalOrange + '\n\n'+
     'Total : Rp. ' + totalPrice.toLocaleString('us')
 )
+
+
+/* 
+    Upgrade :
+
+    1. Setiap meminta input, jika melebihi stock :
+        Munculkan alert 'Kesalahan input, stock (nama buah) = (stock buah)
+        Qty belanjaan untuk buah tersebut menjadi nol
+    
+    2. Jika ada salah satu buah yang memiliki qty nol :
+        Munculkan alert 'Transaksi dibatalkan, salah satu atau lebih mengalami kesalahan input'
+        lalu selesai
+
+    3. Jika tidak ada kesalahan input
+        Munculkan informasi biaya (seperti versi sebelumnya)
+
+    4. Meminta user untuk input sejumlah uang :
+        Jika uang yang dimasukkan kurang :
+            Munculkan alert 'Transaksi dibatalkan, Uang yang Anda masukkan kurang (jumlah uang) '
+        Jika uang yang dimasukkan lebih :
+            Munculkan alert 'Terimakasih, Uang kembali untuk Anda (Jumlah Uang)
+        Jika uang uyang dimasukkan pas :
+            Munculkan alert 'Terimakasih'
+*/
