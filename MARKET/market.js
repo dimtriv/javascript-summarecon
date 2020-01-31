@@ -8,27 +8,68 @@ var priceApple = 10000
 var priceGrape = 15000
 var priceOrange = 20000
 
+// Stock buah
+var stockApple = 5
+var stockGrape = 7
+var stockOrange = 8
+
 // Meminta qty setiap buah
-var apple = prompt('Masukkan jumlah Apel :')
-var grape = prompt('Masukkan jumlah Anggur :')
-var orange = prompt('Masukkan jumlah Jeruk :')
+var qtyApple = prompt('Masukkan jumlah Apel :')
+// Jika qty yang diminta melebihi stock
+if(qtyApple > stockApple){
+    alert(`Kesalahan dalam input, stock Apel : ${stockApple}`)
+    // set menjadi nol
+    qtyApple = 0
+}
 
-// Hitung total biaya per buah
-var totalApple = priceApple * apple
-var totalGrape = priceGrape * grape
-var totalOrange = priceOrange * orange
+var qtyGrape = prompt('Masukkan jumlah Anggur :')
+if(qtyGrape > stockGrape){
+    alert(`Kesalahan dalam input, stock Apel : ${stockGrape}`)
+    qtyGrape = 0
+}
 
-// Hitung keseluruhan total biaya
-var totalPrice = totalApple + totalGrape + totalOrange
+var qtyOrange = prompt('Masukkan jumlah Jeruk :')
+if(qtyOrange > stockOrange){
+    alert(`Kesalahan dalam input, stock Apel : ${stockOrange}`)
+    qtyOrange = 0
+}
 
-// Munculkan Alert
-alert(
-    'Detail Belanja \n\n' +
-    'Apple : ' + apple + ' x ' + priceApple + ' = ' + totalApple + '\n' +
-    'Grape : ' + grape + ' x ' + priceGrape + ' = ' + totalGrape + '\n' +
-    'Orange : ' + orange + ' x ' + priceOrange + ' = ' + totalOrange + '\n\n'+
-    'Total : Rp. ' + totalPrice.toLocaleString('us')
-)
+if(qtyApple == 0 || qtyGrape == 0 || qtyOrange == 0){
+    alert ("Transaksi dibatalkan, salah satu atau lebih mengalami kesalahan input")
+
+} else {
+    // Hitung total biaya per buah
+    var totalApple = priceApple * qtyApple
+    var totalGrape = priceGrape * qtyGrape
+    var totalOrange = priceOrange * qtyOrange
+
+    // Hitung keseluruhan total biaya
+    var totalPrice = totalApple + totalGrape + totalOrange
+
+    // Munculkan Alert
+    alert(
+        'Detail Belanja \n\n' +
+        'Apple : ' + qtyApple + ' x ' + priceApple + ' = ' + totalApple + '\n' +
+        'Grape : ' + qtyGrape + ' x ' + priceGrape + ' = ' + totalGrape + '\n' +
+        'Orange : ' + qtyOrange + ' x ' + priceOrange + ' = ' + totalOrange + '\n\n'+
+        'Total : Rp. ' + totalPrice.toLocaleString('us')
+    )
+
+    var money = parseInt(prompt('Masukkan jumlah uang : '))
+
+    var margin = money - totalPrice
+
+    if(money < totalPrice){
+        alert(`Transaksi dibatalkan, uang Anda kurang Rp. ${margin}`)
+    } else if (money > totalPrice){
+        alert(`Terimakasih\n\nUang kembali Anda Rp. ${margin}`)
+    } else {
+        alert('Terimakasih !')
+    }
+
+}
+
+
 
 
 /* 
