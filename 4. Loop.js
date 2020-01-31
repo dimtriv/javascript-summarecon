@@ -2,7 +2,7 @@
 // Cek kondisi lebih dulu, kemudian running jika kondisi terpenuhi
 // var number = 0
 
-// kondiris while harus true untuk running block kode
+// // kondiris while harus true untuk running block kode
 // while(number > 5){
 //     // block kode yang akan di running jika condition bernilai true
 //     console.log(`While ke - ${number}`)
@@ -42,3 +42,23 @@
 //     number += 2
 
 // } while (number < 10);
+
+// FOR LOOP
+
+for(number = 0; number < 5; number ++){
+    console.log(`For ke - ${number}`)
+    
+}
+
+/*
+    1. Pertama kali running akan membaca kode yang di 'kiri'
+
+    2. Akan running kode 'tengah' untuk mendapatkan nilai boolean (T / F)
+        2.1 Jika True, maka running kode pada block kurung kurawal { }
+        2.2 Jika False, maka akan berhenti / keluar dari for loop
+    
+    3. Jika sudah selesai running kode pada kurun kurawal / step 2.1
+        Maka akan running kode 'kanan'
+        Kemudian running kode 'tengah' / step 2
+        Dan akan terus mengulang hingga step 2 menghasilkan False (Stop)
+*/
