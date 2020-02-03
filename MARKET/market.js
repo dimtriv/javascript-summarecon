@@ -14,83 +14,95 @@ var stockGrape = 7
 var stockOrange = 8
 
 // Meminta qty setiap buah
-var qtyApple = prompt('Masukkan jumlah Apel :')
-// Jika qty yang diminta melebihi stock
-if(qtyApple > stockApple){
-    alert(`Kesalahan dalam input, stock Apel : ${stockApple}`)
-    // set menjadi nol
-    qtyApple = 0
-}
 
-var qtyGrape = prompt('Masukkan jumlah Anggur :')
-if(qtyGrape > stockGrape){
-    alert(`Kesalahan dalam input, stock Apel : ${stockGrape}`)
-    qtyGrape = 0
-}
-
-var qtyOrange = prompt('Masukkan jumlah Jeruk :')
-if(qtyOrange > stockOrange){
-    alert(`Kesalahan dalam input, stock Apel : ${stockOrange}`)
-    qtyOrange = 0
-}
-
-if(qtyApple == 0 || qtyGrape == 0 || qtyOrange == 0){
-    alert ("Transaksi dibatalkan, salah satu atau lebih mengalami kesalahan input")
-
-} else {
-    // Hitung total biaya per buah
-    var totalApple = priceApple * qtyApple
-    var totalGrape = priceGrape * qtyGrape
-    var totalOrange = priceOrange * qtyOrange
-
-    // Hitung keseluruhan total biaya
-    var totalPrice = totalApple + totalGrape + totalOrange
-
-    // Munculkan Alert
-    alert(
-        'Detail Belanja \n\n' +
-        'Apple : ' + qtyApple + ' x ' + priceApple + ' = ' + totalApple + '\n' +
-        'Grape : ' + qtyGrape + ' x ' + priceGrape + ' = ' + totalGrape + '\n' +
-        'Orange : ' + qtyOrange + ' x ' + priceOrange + ' = ' + totalOrange + '\n\n'+
-        'Total : Rp. ' + totalPrice.toLocaleString('us')
-    )
-
-    var money = parseInt(prompt('Masukkan jumlah uang : '))
-
-    var margin = money - totalPrice
-
-    if(money < totalPrice){
-        alert(`Transaksi dibatalkan, uang Anda kurang Rp. ${margin}`)
-    } else if (money > totalPrice){
-        alert(`Terimakasih\n\nUang kembali Anda Rp. ${margin}`)
+var qtyCondition
+do {
+    var qtyApple = prompt('Masukkan jumlah Apel :')
+    // Jika qty yang diminta melebihi stock
+    if(qtyApple > stockApple){
+        alert(`Kesalahan dalam input, stock Apel : ${stockApple}`)
+        // Agar mengulang proses
+        qtyCondition = true
     } else {
-        alert('Terimakasih !')
+        // Agar keluar dari loop
+        qtyCondition = false
     }
 
-}
+} while (qtyCondition);
 
 
+do {
+    var qtyGrape = prompt('Masukkan jumlah Anggur :')
+    if(qtyGrape > stockGrape){
+        alert(`Kesalahan dalam input, stock Apel : ${stockGrape}`)
+        qtyCondition = true
 
+    } else {
+        qtyCondition = false
 
-/* 
-    Upgrade :
+    }
+} while (qtyCondition);
 
-    1. Setiap meminta input, jika melebihi stock :
-        Munculkan alert 'Kesalahan input, stock (nama buah) = (stock buah)
-        Qty belanjaan untuk buah tersebut menjadi nol
+do {
+    var qtyOrange = prompt('Masukkan jumlah Jeruk :')
+
+    if(qtyOrange > stockOrange){
+        alert(`Kesalahan dalam input, stock Apel : ${stockOrange}`)
+        qtyCondition = true
+
+    } else {
+        qtyCondition = false
+
+    }
+} while (qtyCondition);
+
+// Hitung total biaya per buah
+var totalApple = priceApple * qtyApple
+var totalGrape = priceGrape * qtyGrape
+var totalOrange = priceOrange * qtyOrange
+
+// Hitung keseluruhan total biaya
+var totalPrice = totalApple + totalGrape + totalOrange
+
+// Munculkan Alert
+alert(
+    'Detail Belanja \n\n' +
+    'Apple : ' + qtyApple + ' x ' + priceApple + ' = ' + totalApple + '\n' +
+    'Grape : ' + qtyGrape + ' x ' + priceGrape + ' = ' + totalGrape + '\n' +
+    'Orange : ' + qtyOrange + ' x ' + priceOrange + ' = ' + totalOrange + '\n\n'+
+    'Total : Rp. ' + totalPrice.toLocaleString('us')
+)
+
+var moneyCondition
+do {
+    // User input uang
+    var money = parseInt(prompt('Masukkan jumlah uang : '))
+
+    // Cari selisih uang dan total biaya
+    var margin = money - totalPrice
+
+    // Jika uang user kurang
+    if(money < totalPrice){
+        alert(`Transaksi dibatalkan, uang Anda kurang Rp. ${margin}`)
+        moneyCondition = true
+
+    // Jika uang user lebih
+    } else if (money > totalPrice){
+        alert(`Terimakasih\n\nUang kembali Anda Rp. ${margin}`)
+        moneyCondition = false
     
-    2. Jika ada salah satu buah yang memiliki qty nol :
-        Munculkan alert 'Transaksi dibatalkan, salah satu atau lebih mengalami kesalahan input'
-        lalu selesai
+    // Jika uang user pas
+    } else {
+        alert('Terimakasih !')
+        moneyCondition = false
 
-    3. Jika tidak ada kesalahan input
-        Munculkan informasi biaya (seperti versi sebelumnya)
+    }
 
-    4. Meminta user untuk input sejumlah uang :
-        Jika uang yang dimasukkan kurang :
-            Munculkan alert 'Transaksi dibatalkan, Uang yang Anda masukkan kurang (jumlah uang) '
-        Jika uang yang dimasukkan lebih :
-            Munculkan alert 'Terimakasih, Uang kembali untuk Anda (Jumlah Uang)
-        Jika uang uyang dimasukkan pas :
-            Munculkan alert 'Terimakasih'
-*/
+} while (moneyCondition);
+
+
+
+
+
+
+

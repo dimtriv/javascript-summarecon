@@ -111,19 +111,19 @@
     * * * * * \n
 */
 
-var row = 3
-var stars = ''
+// var row = 3
+// var stars = ''
 
-for(var i = 0 ; i < 3; i++){
+// for(var i = 0 ; i < 3; i++){
     
-    for(var j = 0; j < i + 1; j++){
-        stars += ' * '
-    }
+//     for(var j = 0; j < i + 1; j++){
+//         stars += ' * '
+//     }
 
-    stars += '\n'
-}
+//     stars += '\n'
+// }
 
-console.log(stars)
+// console.log(stars)
 
 /*
     i = 3, FALSE
