@@ -15,46 +15,33 @@ var stockOrange = 8
 
 // Meminta qty setiap buah
 
-var qtyCondition
+
 do {
     var qtyApple = prompt('Masukkan jumlah Apel :')
     // Jika qty yang diminta melebihi stock
     if(qtyApple > stockApple){
         alert(`Kesalahan dalam input, stock Apel : ${stockApple}`)
-        // Agar mengulang proses
-        qtyCondition = true
-    } else {
-        // Agar keluar dari loop
-        qtyCondition = false
-    }
+    } 
 
-} while (qtyCondition);
-
+} while (qtyApple > stockApple);
 
 do {
     var qtyGrape = prompt('Masukkan jumlah Anggur :')
+    // Jika qty yang diminta melebihi stock
     if(qtyGrape > stockGrape){
-        alert(`Kesalahan dalam input, stock Apel : ${stockGrape}`)
-        qtyCondition = true
+        alert(`Kesalahan dalam input, stock Anggur : ${stockGrape}`)
+    } 
 
-    } else {
-        qtyCondition = false
-
-    }
-} while (qtyCondition);
+} while (qtyGrape > stockGrape);
 
 do {
-    var qtyOrange = prompt('Masukkan jumlah Jeruk :')
-
+    var qtyOrange = prompt('Masukkan jumlah Orange :')
+    // Jika qty yang diminta melebihi stock
     if(qtyOrange > stockOrange){
-        alert(`Kesalahan dalam input, stock Apel : ${stockOrange}`)
-        qtyCondition = true
+        alert(`Kesalahan dalam input, stock Orange : ${stockOrange}`)
+    } 
 
-    } else {
-        qtyCondition = false
-
-    }
-} while (qtyCondition);
+} while (qtyOrange > stockOrange);
 
 // Hitung total biaya per buah
 var totalApple = priceApple * qtyApple
