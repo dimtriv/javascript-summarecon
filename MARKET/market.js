@@ -1,17 +1,10 @@
 // MARKET V1.0
 
-// var apple = 3, grape = 3, orange = 3
-// var apple = grape = orange = 3
-
-// Setiap buah memiliki harga satuan
-var priceApple = 10000
-var priceGrape = 15000
-var priceOrange = 20000
-
-// Stock buah
-var stockApple = 5
-var stockGrape = 7
-var stockOrange = 8
+let fruits = ['Apple', 'Grape', 'Orange', 'Banana', 'Cherry', 'Lemon']
+let stock = [5, 7, 8, 5, 5, 5]
+let price = [10000, 15000, 20000, 11000, 16000, 21000]
+let qty = [0, 0, 0, 0, 0, 0]
+let total = [0, 0, 0, 0, 0, 0]
 
 // Meminta qty setiap buah
 

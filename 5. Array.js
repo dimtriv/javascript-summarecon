@@ -190,5 +190,49 @@ var days = [
 // console.log(days)
 // console.log(dayTwo)
 
+/////////// 
+// MERGE //
+///////////
+
+// Destruction array
+// var dayOne = ['Sunday', 'Monday', 'Tuesday']
+// var dayTwo = ['Thursday', 'Friday', 'Saturday']
+// var dayThree = ['Wednesday']
+
+// var dayOneTwo = [...dayOne, ...dayTwo]
+// console.log(dayOneTwo)
+
+// var dayAllIn = [...dayOne, ...dayThree, ...dayTwo]
+// console.log(dayAllIn)
 
 
+//////////////////////
+// Array of Array  //
+/////////////////////
+
+var persons = [
+    ['John', 43, 'Assasin'],
+    ['Tony', 44, 'Engineer'],
+    ['Baby', 21, 'Driver'],
+    ['Justin', 29, 'Singer']
+]
+
+var found
+for (var i = 0; i < persons.length; i++){
+    if(persons[i][0] == 'John'){
+        found = i
+    }
+}
+
+console.log(`Index dari Tony adalah ${found}`)
+
+// persons[2].push('Single')
+
+
+// console.log(
+//     persons.indexOf(['Tony', 44, 'Engineer'])
+// )
+
+// persons.splice(1,2)
+
+// console.log(persons)

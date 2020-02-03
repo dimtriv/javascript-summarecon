@@ -1,8 +1,12 @@
-## MARKET V3.0
+## MARKET V5.0
 
-### Specification:
-
-- User akan diminta input ulang jumlah quantity jika sebelumnya melebihi stock
-- User akan diminta input ulang jumlah uang jika sebelumnya kurang dari total biaya keseluruhan.
-- Jika uangnya kurang, munculkan pesan kurangnya berapa
-- Jika uangnya pas atau lebih 'Terimakasih, kembalian Anda (sekian)'
+- Hanya boleh ada satu block do while untuk input jumlah qty setiap product.
+- Gunakan for loop untuk menghitung total harga setiap barang.
+- Gunakan for loop untuk menghitung total harga dari seluruh barang.
+- Sekarang user tidak hanya bisa belanja namun ada 3 pilihan tambahan
+- App akan memiliki 4 menu utama :
+    - 0 . Menampilkan daftar buah
+    - 1 . Menambah buah
+    - 2 . Menghapus buah
+    - 3 . Membeli buah
+- Untuk setiap selesai menambah dan menghapus buah akan menampilkan daftar buah terbaru student akan mengulang kode yang sama untuk membuat list.
