@@ -110,16 +110,85 @@ var days = [
 // shift, mengeluarkan data index pertama
 // unshift, menambahkan data di index pertama
 
-var heroes = ['Rubick', 'Shadow Fiend', 'Windranger']
+// var heroes = ['Rubick', 'Shadow Fiend', 'Windranger']
 
-heroes.push('Axe')
-console.log(heroes)
+// heroes.push('Axe')
+// console.log(heroes)
 // [ 'Rubick', 'Shadow Fiend', 'Windranger', 'Axe' ]
 
-heroes.shift()
-console.log(heroes)
+// heroes.shift()
+// console.log(heroes)
 // [ 'Shadow Fiend', 'Windranger', 'Axe' ]
 
-heroes.unshift('Invoker')
-console.log(heroes)
+// heroes.unshift('Invoker')
+// console.log(heroes)
 // [ 'Invoker', 'Shadow Fiend', 'Windranger', 'Axe' ]
+
+
+//////////////////////
+// DELETE & SPLICE //
+/////////////////////
+
+// Splice, hapus data tertentu, yang lain geser
+// Delete , akan menjadi undefined
+
+// var words = ['Please', 'Save', 'Me', 'Now']
+
+// Hapus data dari index 1 sampai terakhir
+// words.splice(1)
+// console.log(words)
+
+// Hapus mulai dari index 1, sebanyak 2 data
+// words.splice(1, 2)
+// console.log(words)
+// ['Please', 'Now']
+
+// Hapus mulai dari index 0, sebanyak 1 data
+// words.splice(0, 1)
+// console.log(words)
+// ['Now']
+
+// var words = ['Please', 'Save', 'Me', 'Now']
+// Dari index 1, tidak menghapus data, dan tambahkan 3 data baru
+// words.splice(1, 0, 'I','Need', 'Help')
+// console.log(words)
+// ['Please', 'I', 'Need, 'Help', 'Save', 'Me', 'Now']
+
+// var words = ['Please', 'Save', 'Me', 'Now']
+// Dari index 1, hapus 3 data, tambahkan 3 data baru
+// words.splice(1,3, 'I', 'Need', 'Help')
+// console.log(words)
+// ['Please', 'I', 'Need', 'Help']
+
+// delete words[1]
+// console.log(words)
+// ['Please', undefined, 'Me', 'Now']
+// console.log(words[1])
+// undefined
+
+/////////// 
+// SLICE //
+/////////// 
+
+// Copy sebagian data tanpa mengubah dari nilai asli
+// var days = [
+//     'Sunday',
+//     'Monday',
+//     'Tuesday',
+//     'Wednesday',
+//     'Thursday',
+//     'Friday',
+//     'Saturday'
+// ]
+// Copy data dari index 2 sampai index terakhir (habis)
+// var dayOne = days.slice(2)
+// console.log(days)
+// console.log(dayOne)
+
+// Copy dari index 2 - 4
+// var dayTwo = days.slice(2, 5)
+// console.log(days)
+// console.log(dayTwo)
+
+
+
