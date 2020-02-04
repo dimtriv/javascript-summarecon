@@ -1,84 +1,94 @@
 // MARKET V1.0
 
-let fruits = ['Apple', 'Grape', 'Orange', 'Banana', 'Cherry', 'Lemon']
-let stock = [5, 7, 8, 5, 5, 5]
-let price = [10000, 15000, 20000, 11000, 16000, 21000]
-let qty = [0, 0, 0, 0, 0, 0]
-let total = [0, 0, 0, 0, 0, 0]
-
-// Meminta qty setiap buah
+let fruits = ['Apel', 'Anggur', 'Jeruk']
+let stock = [5, 7, 8]
+let price = [10000, 15000, 20000]
 
 
-do {
-    var qtyApple = prompt('Masukkan jumlah Apel :')
-    // Jika qty yang diminta melebihi stock
-    if(qtyApple > stockApple){
-        alert(`Kesalahan dalam input, stock Apel : ${stockApple}`)
-    } 
+var mainOpt = parseInt(prompt(
+    'Menu Utama : \n\n' +
+    '0. Menampilkan daftar buah\n' +
+    '1. Menambah buah\n' +
+    '2. Menghapus buah\n' +
+    '3. Membeli buah\n\n'
+))
 
-} while (qtyApple > stockApple);
+if(mainOpt == 0){
+    // Menampilkan list buah
+} else if(mainOpt == 1){
+    // Menambahkan buah
+} else if(mainOpt == 2){
+    // Menghapus  buah
+} else if(mainOpt == 3){ // Membeli buah
+    // qty setiap buah
+    let qty = [0, 0, 0]
+    // total setiap buah
+    let total = [0, 0, 0]
+    // total biaya kesuluruhan
+    let totalPrice = 0
 
-do {
-    var qtyGrape = prompt('Masukkan jumlah Anggur :')
-    // Jika qty yang diminta melebihi stock
-    if(qtyGrape > stockGrape){
-        alert(`Kesalahan dalam input, stock Anggur : ${stockGrape}`)
-    } 
+    // Meminta qty setiap buah, loop sebanyak jumlah buah
+    for (var i = 0; i < fruits.length; i++){
+        do {
+            qty[i] = prompt(`Masukkan jumlah ${fruits[i]} : `)
+            // Jika qty yang diminta melebihi stock
+            if(qty[i] > stock[i]){
+                alert(
+                    `Kesalahan dalam input, stock ${fruits[i]} : ${stock[i]}`
+                )
+            } 
+            // Akan mengulang loop jika qty lebih besar dari stock
+        } while (qty[i] > stock[i]);
 
-} while (qtyGrape > stockGrape);
-
-do {
-    var qtyOrange = prompt('Masukkan jumlah Orange :')
-    // Jika qty yang diminta melebihi stock
-    if(qtyOrange > stockOrange){
-        alert(`Kesalahan dalam input, stock Orange : ${stockOrange}`)
-    } 
-
-} while (qtyOrange > stockOrange);
-
-// Hitung total biaya per buah
-var totalApple = priceApple * qtyApple
-var totalGrape = priceGrape * qtyGrape
-var totalOrange = priceOrange * qtyOrange
-
-// Hitung keseluruhan total biaya
-var totalPrice = totalApple + totalGrape + totalOrange
-
-// Munculkan Alert
-alert(
-    'Detail Belanja \n\n' +
-    'Apple : ' + qtyApple + ' x ' + priceApple + ' = ' + totalApple + '\n' +
-    'Grape : ' + qtyGrape + ' x ' + priceGrape + ' = ' + totalGrape + '\n' +
-    'Orange : ' + qtyOrange + ' x ' + priceOrange + ' = ' + totalOrange + '\n\n'+
-    'Total : Rp. ' + totalPrice.toLocaleString('us')
-)
-
-var moneyCondition
-do {
-    // User input uang
-    var money = parseInt(prompt('Masukkan jumlah uang : '))
-
-    // Cari selisih uang dan total biaya
-    var margin = money - totalPrice
-
-    // Jika uang user kurang
-    if(money < totalPrice){
-        alert(`Transaksi dibatalkan, uang Anda kurang Rp. ${margin}`)
-        moneyCondition = true
-
-    // Jika uang user lebih
-    } else if (money > totalPrice){
-        alert(`Terimakasih\n\nUang kembali Anda Rp. ${margin}`)
-        moneyCondition = false
-    
-    // Jika uang user pas
-    } else {
-        alert('Terimakasih !')
-        moneyCondition = false
-
+        //  total biaya per buah
+        total[i] = price[i] * qty[i]
+        // total biaya kesuluruhan
+        totalPrice += total[i]
     }
 
-} while (moneyCondition);
+    var detailStr = ''
+    for(var i = 0; i < fruits.length; i++){
+        detailStr += `${fruits[i]} : ${qty[i]} x ${price[i]} = ${total[i]}\n`
+    }
+
+    // Munculkan Alert
+    alert(
+        'Detail Belanja \n\n' + detailStr + '\n' +
+        'Total : Rp. ' + totalPrice.toLocaleString('in')
+    )
+
+    
+    var moneyCondition
+    do {
+        // User input uang
+        var money = parseInt(prompt('Masukkan jumlah uang : '))
+
+        // Cari selisih uang dan total biaya
+        var margin = money - totalPrice
+
+        // Jika uang user kurang
+        if(money < totalPrice){
+            alert(`Mohon input kembali, uang Anda kurang Rp. ${margin}`)
+            moneyCondition = true
+
+        // Jika uang user lebih
+        } else if (money > totalPrice){
+            alert(`Terimakasih\n\nUang kembali Anda Rp. ${margin}`)
+            moneyCondition = false
+        
+        // Jika uang user pas
+        } else {
+            alert('Terimakasih !')
+            moneyCondition = false
+
+        }
+
+    } while (moneyCondition);
+
+} else {
+    // Invalid menu
+}
+
 
 
 
