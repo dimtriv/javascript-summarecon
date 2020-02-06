@@ -6,16 +6,16 @@
 // Sebuah function dapat memiliki input, output atau input dan input sekaligus
 
 // no input, no output
-function hello(){
-    console.log('Hello ... ')
-}
+// function hello(){
+//     console.log('Hello ... ')
+// }
 
 // hello()
 
 // 1 input, no output
-function greet(name) {
-    console.log(`Hello, ${name}`)
-}
+// function greet(name) {
+//     console.log(`Hello, ${name}`)
+// }
 
 // greet('Tony')
 // greet('Jhonny')
@@ -76,35 +76,77 @@ function sum(x, y){
 
 // Tugas
 
-function calculate(fn, numOne, numTwo){
-    // fn = calSum
-    // numOne = 3
-    // numTwo = 4
-    var resFn = fn(numOne, numTwo)
+// function calculate(fn, numOne, numTwo){
+//     // fn = calSum
+//     // numOne = 3
+//     // numTwo = 4
+//     var resFn = fn(numOne, numTwo)
 
-    return resFn
+//     return resFn
     
+// }
+
+// function calSum(x, y){
+//     var res = x  + y
+
+//     return res
+// }
+
+// function calMult(x, y){
+//     var res = x  * y
+
+//     return res
+// }
+
+// var result = calculate(calMult, 3, 4)
+// console.log(result)
+
+
+// function anonym(fn){
+//     var a = 4
+//     var b = 2
+
+//     var res = fn(a, b)
+
+//     return res
+// }
+
+// function square(x, y){
+//     var res = Math.pow(x, y)
+
+//     return res
+// }
+
+// var hasil = anonym(square)
+
+////////////////////
+// SORT : Advance //
+////////////////////
+// Sort menerima function dg dua parameter
+// function tsb mereturn salah satu dari 3 kemungkinan :
+//      1. nilai negatif
+//      2. nilai nol
+//      3. nilai positif
+
+// return negatif : posisi 'a' ada didepan 'b'
+// return nol : tidak bertukar posisi
+// return positif : posisi 'b' ada didepan 'a'
+
+numArr = [40, 23, 1, 100, 2, 230]
+
+// ascending, kecil ke besar
+function asc(a, b){
+    return a - b
 }
 
-function calSum(x, y){
-    var res = x  + y
-
-    return res
+//  descending, besar ke kecil
+function dsc(a, b){
+    return b - a
 }
 
-function calMult(x, y){
-    var res = x  * y
+numArr.sort(dsc)
 
-    return res
-}
-
-var result = calculate(calMult, 3, 4)
-console.log(result)
-
-
-
-
-
+console.log(numArr)
 
 
 
