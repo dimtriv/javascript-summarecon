@@ -13,9 +13,9 @@ function hello(){
 // hello()
 
 // 1 input, no output
-// function greet(name) {
-//     console.log(`Hello, ${name}`)
-// }
+function greet(name) {
+    console.log(`Hello, ${name}`)
+}
 
 // greet('Tony')
 // greet('Jhonny')
@@ -35,26 +35,73 @@ function intro(name, age, job){
 
 // no input, 1 output
 // kode setelah return tidak di baca
-// function grav(){
-//     console.log('Sebelum return')
-//     return 9.8
-//     console.log('Setelah return')
-// }
+function grav(){
+    console.log('Sebelum return')
+    return 9.8
+    console.log('Setelah return')
+}
 
 // var result = grav()
 // console.group(`Satuan gravitasi : ${result}`)
 
 // 2 input, 1 output
+// Variable x dan y merupakan variable 'local'
+// yang artinya hanya dapat diakses di dalam function sum
+// jika mencoba mengakses diluar function sum akan error
 function sum(x, y){
-    var result = x + y
-
-    return result
+    return x +y 
 }
 
-var sumResult = sum(4, 5)
-console.log(`4 + 5 = ${sumResult}`)
 
-console.log(sum(2, 3))
+// Ini akan error karena tidak bisa mengakses variable di dalam function sum.
+// console.log(x);
+
+
+// var sumResult = sum(4, 5)
+// console.log(`4 + 5 = ${sumResult}`)
+
+// console.log(sum(2, 3))
+
+// Function call another function
+
+// function oneFun(){
+//     console.log('Function oneFun')
+// }
+
+// function twoFun(fn){
+//     fn()
+// }
+
+// twoFun(oneFun)
+
+// Tugas
+
+function calculate(fn, numOne, numTwo){
+    // fn = calSum
+    // numOne = 3
+    // numTwo = 4
+    var resFn = fn(numOne, numTwo)
+
+    return resFn
+    
+}
+
+function calSum(x, y){
+    var res = x  + y
+
+    return res
+}
+
+function calMult(x, y){
+    var res = x  * y
+
+    return res
+}
+
+var result = calculate(calMult, 3, 4)
+console.log(result)
+
+
 
 
 
