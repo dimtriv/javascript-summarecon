@@ -171,15 +171,15 @@ var days = [
 /////////// 
 
 // Copy sebagian data tanpa mengubah dari nilai asli
-var days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'
-]
+// var days = [
+//     'Sunday',
+//     'Monday',
+//     'Tuesday',
+//     'Wednesday',
+//     'Thursday',
+//     'Friday',
+//     'Saturday'
+// ]
 // Copy data dari index 2 sampai index terakhir (habis)
 // var dayOne = days.slice(2)
 // console.log(days)

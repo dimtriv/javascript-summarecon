@@ -1,10 +1,10 @@
 // MARKET V1.0
 
-let fruits = ['Apel', 'Anggur', 'Jeruk']
-let stock = [5, 7, 8]
-let price = [10000, 15000, 20000]
-let qty = [0, 0, 0]
-let total = [0, 0, 0]
+let fruits = [
+    {name : 'Apel', price: 10000, stock: 5, qty : 0, total: 0},
+    {name : 'Anggur', price: 15000, stock: 7, qty : 0, total: 0},
+    {name : 'Jeruk', price: 20000, stock: 8, qty : 0, total: 0}
+]
 
 
 do {
@@ -161,7 +161,13 @@ do {
 
 
 
+/*
+- Ubah penyimpanan data menjadi array of object
+    - Berikan kepada student nilai awal array ini
+    - Student akan refactor kode.
+- Buatlah sebuah function untuk membuat sebuah list product
 
+*/
 
 
 
