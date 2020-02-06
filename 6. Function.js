@@ -76,7 +76,7 @@
 
 // Tugas
 
-// function calculate(fn, numOne, numTwo){
+// function calculate(fn, numberOne, numTwo){
 //     // fn = calSum
 //     // numOne = 3
 //     // numTwo = 4
@@ -124,15 +124,15 @@
 ////////////////////
 // Sort menerima function dg dua parameter
 // function tsb mereturn salah satu dari 3 kemungkinan :
-//      1. nilai negatif
-//      2. nilai nol
-//      3. nilai positif
+//      1. nilai negatif    ( < 0 )
+//      2. nilai nol        ( 0 )
+//      3. nilai positif    ( > 0 )
 
 // return negatif : posisi 'a' ada didepan 'b'
 // return nol : tidak bertukar posisi
 // return positif : posisi 'b' ada didepan 'a'
 
-// numArr = [40, 23, 1, 100, 2, 230]
+numArr = [40, 23, 1, 100, 2, 230]
 
 // ascending, kecil ke besar
 // function asc(a, b){
