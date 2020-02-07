@@ -6,6 +6,20 @@ let fruits = [
     {name : 'Jeruk', price: 20000, stock: 8, qty : 0, total: 0}
 ]
 
+function renderList() {
+    var listFruits = ''
+    
+    if(fruits.length > 0){
+        for(var i = 0; i < fruits.length ; i++){
+            listFruits += `${i + 1}. ${fruits[i].name} | ${fruits[i].stock} | ${fruits[i].price}\n`
+        }
+
+        return listFruits
+    }
+
+    return 'Buah tidak tersedia'
+
+}
 
 do {
     var mainOpt = parseInt(prompt(
@@ -19,37 +33,29 @@ do {
     
     switch (mainOpt) {
         case 1: // Daftar buah
-            var listFruits = ''
+            alert(renderList())
     
-            for(var i = 0; i < fruits.length ; i++){
-                listFruits += `${i + 1}. ${fruits[i]} | ${stock[i]} | ${price[i]}\n`
-            }
-    
-            alert(listFruits)
-            
             // press ok, repeat = true
             // press cancel, repeat = false
             var repeat = confirm('Kembali ke menu utama ?')
             break;
         case 2: // Menambah buah
             // tanya nama, stock, dan harga
-            var newFruit = prompt('Masukkan nama buah :')
+            var newName = prompt('Masukkan nama buah :')
             var newStock = parseInt(prompt('Masukkan stock buah :'))
             var newPrice = parseInt(prompt('Masukkan harga buah :'))
     
             // push ke masing - masing array
-            fruits.push(newFruit)
-            stock.push(newStock)
-            price.push(newPrice)
+            fruits.push({
+                name: newName, 
+                stock: newStock, 
+                price: newPrice,
+                qty: 0,
+                total: 0
+            })
     
             // tampilkan list buah
-            var listFruits = ''
-    
-            for(var i = 0; i < fruits.length ; i++){
-                listFruits += `${i + 1 }. ${fruits[i]} | ${stock[i]} | ${price[i]}\n`
-            }
-    
-            alert(listFruits)
+            alert(renderList())
             
             // press ok, repeat = true
             // press cancel, repeat = false
@@ -58,29 +64,15 @@ do {
         case 3: // Menghapus buah
     
             // munculkan list, minta input user
-            var listFruits = ''
+            
     
-            for(var i = 0; i < fruits.length ; i++){
-                listFruits += `${i + 1 }. ${fruits[i]} | ${stock[i]} | ${price[i]}\n`
-            }
+            var selected = parseInt(prompt(`Pilih buah :\n\n${renderList()}`)) - 1
     
-            var selected = parseInt(prompt(`Pilih buah :\n\n${listFruits}`)) - 1
-    
-            // hapus buah, stock, harga
+            // hapus buah pada index terpilih
             fruits.splice(selected, 1)
-            qty.splice(selected, 1)
-            price.splice(selected, 1)
-            qty.splice(selected, 1)
-            total.splice(selected, 1)
     
             // munculkan list
-            var listFruits = ''
-    
-            for(var i = 0; i < fruits.length ; i++){
-                listFruits += `${i + 1 }. ${fruits[i]} | ${stock[i]} | ${price[i]}\n`
-            }
-    
-            alert(listFruits)
+            alert(renderList())
 
             // press ok, repeat = true
             // press cancel, repeat = false
@@ -94,25 +86,25 @@ do {
             // Meminta qty setiap buah, loop sebanyak jumlah buah
             for (var i = 0; i < fruits.length; i++){
                 do {
-                    qty[i] = prompt(`Masukkan jumlah ${fruits[i]} : `)
+                    fruits[i].qty = prompt(`Masukkan jumlah ${fruits[i].name} : `)
                     // Jika qty yang diminta melebihi stock
-                    if(qty[i] > stock[i]){
+                    if(fruits[i].qty > fruits[i].stock){
                         alert(
-                            `Kesalahan dalam input, stock ${fruits[i]} : ${stock[i]}`
+                            `Kesalahan dalam input, stock ${fruits[i].name} : ${fruits[i].stock}`
                         )
                     } 
                     // Akan mengulang loop jika qty lebih besar dari stock
-                } while (qty[i] > stock[i]);
+                } while (fruits[i].qty > fruits[i].stock);
     
                 //  total biaya per buah
-                total[i] = price[i] * qty[i]
+                fruits[i].total = fruits[i].price * fruits[i].qty
                 // total biaya kesuluruhan
-                totalPrice += total[i]
+                totalPrice += fruits[i].total
             }
     
             var detailStr = ''
             for(var i = 0; i < fruits.length; i++){
-                detailStr += `${fruits[i]} : ${qty[i]} x ${price[i]} = ${total[i]}\n`
+                detailStr += `${fruits[i].name} : ${fruits[i].qty} x ${fruits[i].price} = ${fruits[i].total}\n`
             }
     
             // Munculkan Alert
