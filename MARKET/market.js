@@ -1,11 +1,12 @@
 // MARKET V1.0
 
-let fruits = [
-    {name : 'Apel', price: 10000, stock: 5, qty : 0, total: 0},
-    {name : 'Anggur', price: 15000, stock: 7, qty : 0, total: 0},
-    {name : 'Jeruk', price: 20000, stock: 8, qty : 0, total: 0}
-]
+let products = [
+    {category: 1, name : 'Noodle', price: 20000, stock: 8, expired : 2020, qty : 0, total: 0},
+    {category: 2, name : 'Hoodie', price: 15000, stock: 7, size: 'L', qty : 0, total: 0},
+    {category: 3, name : 'Headphone', price: 20000, stock: 8, warranty : 'Yes', qty : 0, total: 0},
+    {category: 4, name : 'Apel', price: 10000, stock: 5, sugarLvl: 'High', qty : 0, total: 0},
 
+]
 function renderList() {
     var listFruits = ''
     
