@@ -8,34 +8,34 @@
 // Property : variable didalam object
 // Method : function didalam object
 
-// var person = {
-//     name : 'John',
-//     age: 49,
-//     hobbies: ['Run', 'Chase'],
-//     pets : [
-//         {name: 'Holly'},
-//         {name: 'Molly'},
-//         {name: ['Ring', 'Ding', 'Dong']}
-//     ],
+var person = {
+    name : 'John',
+    age: 49,
+    hobbies: ['Run', 'Chase'],
+    pets : [
+        {name: 'Holly'},
+        {name: 'Molly'},
+        {name: ['Ring', 'Ding', 'Dong']}
+    ],
 
-//     intro : function (){
-//         console.log(`Hello, My name is${this.name}`)
-//         console.log(`My age is ${this.age} y.o`)
-//         console.log(`One of my pet is ${this.pets[0].name}`)
-//         console.log(`And the other one is, ${this.pets[1].name}`)
-//         console.log(`Then i have ${this.pets[2].name}`)
-//     }
-// }
+    intro : function (){
+        console.log(`Hello, My name is${this.name}`)
+        console.log(`My age is ${this.age} y.o`)
+        console.log(`One of my pet is ${this.pets[0].name}`)
+        console.log(`And the other one is, ${this.pets[1].name}`)
+        console.log(`Then i have ${this.pets[2].name}`)
+    }
+}
 
 // console.log(person)
-// person.intro()
+person.intro()
 
 // Menambahkan property
-// person.address = 'Summarecon'
-// person.wakeUp = function (){console.log('Hello, Good morning')}
+person.address = 'Summarecon'
+person.wakeUp = function (){console.log('Hello, Good morning')}
 
 // Menghapus property
-// delete person.pets
+delete person.pets
 
 ///////////
 // CLASS //
@@ -87,6 +87,7 @@ class Student extends Human{
         
     }
 }
+
 
 class Employee extends Student{
     constructor(_name, _age, _grade, _position){
