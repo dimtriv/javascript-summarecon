@@ -15,10 +15,19 @@ function submit() {
     var name = document.getElementById("name").value
     var age = parseInt(document.getElementById("age").value)
     var gender = document.querySelector("input[name=gender]:checked").value
-    console.log(name);
-    console.log(age);
-    console.log(gender);
-    
+    var skills = document.querySelectorAll("input[type=checkbox]:checked")
+    var skillArr = []
+    for(var i = 0; i < skills.length; i++){
+        skillArr.push(skills[i].value)
+    }
+
+    var result = document.getElementById("result")
+    result.innerText = `
+        Nama saya ${name}\n
+        umur saya ${age}\n
+        saya ${gender}\n
+        kemampuan saya ${skillArr.join(", ")}
+    `
     
 }
 
