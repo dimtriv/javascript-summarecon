@@ -33,4 +33,28 @@ var renderList = () => {
     document.getElementById('catInput').innerHTML = resCategory
 }
 
+// Input data
+var funInputData = () => {
+    // Ambil data
+    var name = document.getElementById("name").value
+    var price = parseInt(document.getElementById("price").value)
+    var stock = parseInt(document.getElementById("stock").value)
+    var category = document.getElementById("catInput").value
+    var time = new Date()
+
+    // Push ke object
+    arrProduct.push({
+        id: time.getTime(),
+        name : name,
+        price: price,
+        stock : stock,
+        category: category
+    })
+
+    // Render product
+    renderList()
+}
+
+
+
 renderList()
