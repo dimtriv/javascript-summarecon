@@ -11,7 +11,7 @@
             padding: 10px;
         }
     </style>
-    <script defer src="./table.html"></script>
+    <script defer src="./table.js"></script>
 </head>
 <body>
     <h1 style="text-align: center;">Market</h1>
@@ -24,9 +24,11 @@
             <p>Harga: <input type="number"> - <input type="number"></p>
             <p>Category : 
                 <select >
-                    <option value="">Opt One</option>
-                    <option value="">Opt Two</option>
-                    <option value="">Opt Three</option>
+                    <option value="">All</option>
+                    <option value="">Fast Food</option>
+                    <option value="">Electronic</option>
+                    <option value="">Cloth</option>
+                    <option value="">Fruit</option>
                 </select>
             </p>
         </fieldset>
@@ -40,9 +42,11 @@
                     <td><input type="number"></td>
                     <td>
                         <select>
-                            <option value="">Opt One</option>
-                            <option value="">Opt Two</option>
-                            <option value="">Opt Three</option>
+                            <option value="">All</option>
+                            <option value="">Fast Food</option>
+                            <option value="">Electronic</option>
+                            <option value="">Cloth</option>
+                            <option value="">Fruit</option>
                         </select>
                     </td>
                     <td><input type="text"></td>
@@ -54,41 +58,17 @@
         <fieldset>
             <legend>Tabel Data</legend>
             <table>
-                <tr>
+                <thead>
                     <th>Id</th>
                     <th>Category</th>
                     <th>Nama</th>
                     <th>Price</th>
                     <th>Stock</th>
-                </tr>
-                <tr>
-                    <td>1579581080923</td>
-                    <td>Fast Food</td>
-                    <td>Noodle</td>
-                    <td>2300</td>
-                    <td>9</td>
-                </tr>
-                <tr>
-                    <td>1579581080923</td>
-                    <td>Fast Food</td>
-                    <td>Noodle</td>
-                    <td>2300</td>
-                    <td>9</td>
-                </tr>
-                <tr>
-                    <td>1579581080923</td>
-                    <td>Fast Food</td>
-                    <td>Noodle</td>
-                    <td>2300</td>
-                    <td>9</td>
-                </tr>
-                <tr>
-                    <td>1579581080923</td>
-                    <td>Fast Food</td>
-                    <td>Noodle</td>
-                    <td>2300</td>
-                    <td>9</td>
-                </tr>
+                </thead>
+                <tbody id="render">
+                    
+                </tbody>
+                
             </table>
         </fieldset>
 
