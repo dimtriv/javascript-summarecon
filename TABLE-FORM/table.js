@@ -3,25 +3,34 @@ var arrProduct = [
     { id: 1579581081130,category: 'Electronic' , name: "Headphone", price: 4300000, stock :8 },
     { id: 1579581081342,category: 'Cloth' , name: "Hoodie", price: 300000, stock :7 },
     { id: 1579581081577,category: 'Fruit' , name: "Apple", price: 10000, stock :8 }
-  ];
+];
 
-// callback function, menerima object {id, name, price, ...}
-function manual(obj){
-    return `
-        <tr>
-            <td>${obj.id}</td>
-            <td>${obj.category}</td>
-            <td>${obj.name}</td>
-            <td>${obj.price}</td>
-            <td>${obj.stock}</td>
-        </tr>
-    `
-}
+var arrCategory = ["All", "Fast Food", "Electronic", "Cloth", "Fruit"];
 
 var renderList = () => {
-    var result = arrProduct.map(manual)
+    // Mapping product
+    var resProduct = arrProduct.map((obj) => {
+        return `
+            <tr>
+                <td>${obj.id}</td>
+                <td>${obj.category}</td>
+                <td>${obj.name}</td>
+                <td>${obj.price}</td>
+                <td>${obj.stock}</td>
+            </tr>
+        `
+    })
 
-    document.getElementById('render').innerHTML = result.join("")
+    // Mapping category
+    var resCategory = arrCategory.map((val) => {
+        return `<option>${val}</option>`
+    })
+
+    // render product
+    document.getElementById('render').innerHTML = resProduct.join("")
+    // render category
+    document.getElementById('catFilter').innerHTML = resCategory
+    document.getElementById('catInput').innerHTML = resCategory
 }
 
 renderList()
