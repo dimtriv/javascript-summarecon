@@ -22,7 +22,7 @@ function submit() {
     }
 
     var result = document.getElementById("result")
-    result.innerText = `
+    result.innerHTML = `
         Nama saya ${name}\n
         umur saya ${age}\n
         saya ${gender}\n
@@ -30,6 +30,7 @@ function submit() {
     `
     
 }
+
 
 // var genderArr = document.getElementsByName("gender")
     // var gender
