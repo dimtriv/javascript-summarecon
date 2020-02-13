@@ -17,14 +17,14 @@ var renderList = (data, idx) => {
                 <tr>
                     <td>${obj.id}</td>
                     <td>${obj.category}</td>
-                    <td><input type="text" value="${obj.name}"></td>
-                    <td><input type="text" value="${obj.price}"></td>
-                    <td><input type="text" value="${obj.stock}"></td>
+                    <td><input id="nameEdit" type="text" value="${obj.name}"></td>
+                    <td><input id="priceEdit" type="text" value="${obj.price}"></td>
+                    <td><input id="stockEdit" type="text" value="${obj.stock}"></td>
                     <td>
-                        <input onclick="funSave()" type="button" value="Save">
+                        <input onclick="funSave(${obj.id})" type="button" value="Save">
                     </td>
                     <td>
-                        <input onclick="funCancel()" type="button" value="Cancel">
+                        <input onclick="funEditCancel()" type="button" value="Cancel">
                     </td>
                 </tr>
             `
@@ -42,7 +42,7 @@ var renderList = (data, idx) => {
                         <input onclick="funDelete(${obj.id})" type="button" value="Delete">
                     </td>
                     <td>
-                        <input onclick="funEdit(${obj.id})" type="button" value="Edit">
+                        <input onclick="funEditCancel(${obj.id})" type="button" value="Edit">
                     </td>
                 </tr>
             `
@@ -62,11 +62,7 @@ var renderList = (data, idx) => {
     document.getElementById('catInput').innerHTML = resCategory
 }
 
-// Button Edit
-var funEdit = (idx) => {
-    // Change to text box
-    renderList(arrProduct, idx)
-}
+
 
 // Input data
 var funInputData = () => {
@@ -165,6 +161,37 @@ var funDelete = (idx) => {
     renderList(arrProduct)
 
 }
+
+// Button Edit and Cancel
+var funEditCancel = (idx) => {
+    // Change to text box
+    renderList(arrProduct, idx)
+}
+
+// Button Save
+var funSave = (idx) => {
+    // Ambil data
+    var name = document.getElementById("nameEdit").value
+    var price = parseInt(document.getElementById("priceEdit").value)
+    var stock = parseInt(document.getElementById("stockEdit").value)
+
+    // Cari indexnya
+    var foundIdx = arrProduct.findIndex((val) => {
+        return val.id == idx
+    })
+
+    // Replace data lama
+    arrProduct[foundIdx] = {
+        ...arrProduct[foundIdx],
+        name: name,
+        price : price,
+        stock: stock
+    }
+
+    // Render data
+    renderList(arrProduct)
+}
+
 
 
 
