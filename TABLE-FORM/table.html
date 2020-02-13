@@ -20,7 +20,7 @@
         <!-- FILTER -->
         <fieldset>
             <legend>Filter</legend>
-            <p>Nama : <input type="text" ></p>
+            <p>Nama : <input oninput="funFilterName()" type="text" id="keyword" ></p>
             <p>Harga: <input type="number"> - <input type="number"></p>
             <p>Category : 
                 <select id="catFilter">
@@ -34,7 +34,7 @@
             <legend>Input data</legend>
             <table>
                 <tr>
-                    <td><input type="text" placeholder="name" id="name"></td>
+                    <td><input  type="text" placeholder="name" id="name"></td>
                     <td><input type="number" placeholder="price" id="price"></td>
                     <td>
                         <select id="catInput">

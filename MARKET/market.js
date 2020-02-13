@@ -48,7 +48,7 @@ let products = [
 
 ]
 
-function renderList() {
+var renderList = () => {
     var listProducts = ''
     
     if(products.length > 0){

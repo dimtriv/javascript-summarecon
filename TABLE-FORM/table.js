@@ -7,9 +7,9 @@ var arrProduct = [
 
 var arrCategory = ["All", "Fast Food", "Electronic", "Cloth", "Fruit"];
 
-var renderList = () => {
+var renderList = (data) => {
     // Mapping product
-    var resProduct = arrProduct.map((obj) => {
+    var resProduct = data.map((obj) => {
         return `
             <tr>
                 <td>${obj.id}</td>
@@ -52,9 +52,31 @@ var funInputData = () => {
     })
 
     // Render product
-    renderList()
+    renderList(arrProduct)
+}
+
+// Filter name
+var funFilterName = () => {
+    // Ambil data
+    var keyword = document.getElementById("keyword").value // N
+
+    // Filter data
+    // val = { name: "Noodle", price: 3500, stock : 9}
+    var filterResult = arrProduct.filter((val) => {
+        // Mengecilkan input user
+        keyword = keyword.toLowerCase() // n
+        // Mengecilkan nama product
+        var prodName = val.name.toLowerCase() // noodle
+        // Return true atau false
+        // noodle -> n
+        return prodName.includes(keyword)
+    })
+
+    // Render data
+    renderList(filterResult)
+
 }
 
 
 
-renderList()
+renderList(arrProduct)
