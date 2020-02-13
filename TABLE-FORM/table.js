@@ -62,6 +62,28 @@ var renderList = (data, idx) => {
     document.getElementById('catInput').innerHTML = resCategory
 }
 
+var fnRenderFilter = (data) => {
+    var resProduct = data.map((obj) => {
+            return `
+                <tr>
+                    <td>${obj.id}</td>
+                    <td>${obj.category}</td>
+                    <td>${obj.name}</td>
+                    <td>${obj.price}</td>
+                    <td>${obj.stock}</td>
+                    <td>
+                        <input onclick="funDelete(${obj.id})" type="button" value="Delete">
+                    </td>
+                    <td>
+                        <input onclick="funEditCancel(${obj.id})" type="button" value="Edit">
+                    </td>
+                </tr>
+            `
+    })
+
+    // render product
+    document.getElementById('render').innerHTML = resProduct.join("")
+}
 
 
 // Input data
@@ -104,7 +126,7 @@ var funFilterName = () => {
     })
 
     // Render data
-    renderList(filterResult)
+    fnRenderFilter(filterResult)
 
 }
 
@@ -128,7 +150,7 @@ var funFilterPrice = () => {
     } 
 
     // Render data
-    renderList(filterResult)
+    fnRenderFilter(filterResult)
 }
 
 // Filter category
@@ -147,7 +169,7 @@ var funFilterCategory = () => {
     }
 
     // Render data
-    renderList(filterResult)
+    fnRenderFilter(filterResult)
 }
 
 // Button Delete
@@ -185,7 +207,8 @@ var funSave = (idx) => {
         ...arrProduct[foundIdx],
         name: name,
         price : price,
-        stock: stock
+        stock: stock,
+        harga: 40000
     }
 
     // Render data
