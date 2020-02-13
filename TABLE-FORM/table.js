@@ -7,24 +7,46 @@ var arrProduct = [
 
 var arrCategory = ["All", "Fast Food", "Electronic", "Cloth", "Fruit"];
 
-var renderList = (data) => {
+var renderList = (data, idx) => {
     // Mapping product
     var resProduct = data.map((obj) => {
-        return `
-            <tr>
-                <td>${obj.id}</td>
-                <td>${obj.category}</td>
-                <td>${obj.name}</td>
-                <td>${obj.price}</td>
-                <td>${obj.stock}</td>
-                <td>
-                    <input onclick="funDelete(${obj.id})" type="button" value="Delete">
-                </td>
-                <td>
-                    <input onclick="funEdit()" type="button" value="Edit">
-                </td>
-            </tr>
-        `
+        // jika id product sama dengan idx
+        if(obj.id == idx){
+            // Textbox
+            return `
+                <tr>
+                    <td>${obj.id}</td>
+                    <td>${obj.category}</td>
+                    <td><input type="text" value="${obj.name}"></td>
+                    <td><input type="text" value="${obj.price}"></td>
+                    <td><input type="text" value="${obj.stock}"></td>
+                    <td>
+                        <input onclick="funSave()" type="button" value="Save">
+                    </td>
+                    <td>
+                        <input onclick="funCancel()" type="button" value="Cancel">
+                    </td>
+                </tr>
+            `
+
+        } else {
+            // String
+            return `
+                <tr>
+                    <td>${obj.id}</td>
+                    <td>${obj.category}</td>
+                    <td>${obj.name}</td>
+                    <td>${obj.price}</td>
+                    <td>${obj.stock}</td>
+                    <td>
+                        <input onclick="funDelete(${obj.id})" type="button" value="Delete">
+                    </td>
+                    <td>
+                        <input onclick="funEdit(${obj.id})" type="button" value="Edit">
+                    </td>
+                </tr>
+            `
+        }
     })
 
     // Mapping category
@@ -38,6 +60,12 @@ var renderList = (data) => {
     // render category
     document.getElementById('catFilter').innerHTML = resCategory
     document.getElementById('catInput').innerHTML = resCategory
+}
+
+// Button Edit
+var funEdit = (idx) => {
+    // Change to text box
+    renderList(arrProduct, idx)
 }
 
 // Input data
@@ -138,9 +166,6 @@ var funDelete = (idx) => {
 
 }
 
-// Button Edit
-var funEdit = (idx) => {
-    // Change to text box
-}
+
 
 renderList(arrProduct)
