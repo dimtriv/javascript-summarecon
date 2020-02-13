@@ -21,9 +21,9 @@
         <fieldset>
             <legend>Filter</legend>
             <p>Nama : <input oninput="funFilterName()" type="text" id="keyword" ></p>
-            <p>Harga: <input type="number"> - <input type="number"></p>
+            <p>Harga: <input oninput="funFilterPrice()" type="number" id="min"> - <input oninput="funFilterPrice()" type="number" id="max"></p>
             <p>Category : 
-                <select id="catFilter">
+                <select onchange="funFilterCategory()" id="catFilter"> 
 
                 </select>
             </p>

@@ -7,9 +7,9 @@ var arrProduct = [
 
 var arrCategory = ["All", "Fast Food", "Electronic", "Cloth", "Fruit"];
 
-var renderList = (data) => {
+var renderList = () => {
     // Mapping product
-    var resProduct = data.map((obj) => {
+    var resProduct = arrProduct.map((obj) => {
         return `
             <tr>
                 <td>${obj.id}</td>
@@ -28,9 +28,28 @@ var renderList = (data) => {
 
     // render product
     document.getElementById('render').innerHTML = resProduct.join("")
+
     // render category
     document.getElementById('catFilter').innerHTML = resCategory
     document.getElementById('catInput').innerHTML = resCategory
+}
+
+var renderFilter = (data) => {
+    // Mapping product
+    var resProduct = data.map((obj) => {
+        return `
+            <tr>
+                <td>${obj.id}</td>
+                <td>${obj.category}</td>
+                <td>${obj.name}</td>
+                <td>${obj.price}</td>
+                <td>${obj.stock}</td>
+            </tr>
+        `
+    })
+
+    // render product
+    document.getElementById('render').innerHTML = resProduct.join("")
 }
 
 // Input data
@@ -73,10 +92,48 @@ var funFilterName = () => {
     })
 
     // Render data
-    renderList(filterResult)
+    renderFilter(filterResult)
 
 }
 
+var funFilterPrice = () => {
+    // Ambil data
+    var min = document.getElementById('min').value
+    var max = document.getElementById('max').value
+    var filterResult = arrProduct
 
+    // Cek kedua textbox, apakah sudah terisi keduanya
+    // Jika terisi keduanya, lakukan filter
+    // Jika salah satu kosong, tidak lakukan filter
 
-renderList(arrProduct)
+    if( !( min == "" || max == "" ) ){
+        // filtering
+        // val = { category: 'Fast Food', name: "Noodle"}
+        filterResult = arrProduct.filter((val) => {
+            return val.price >= min && val.price <= max
+        })
+    } 
+
+    // Render data
+    renderFilter(filterResult)
+}
+
+var funFilterCategory = () => {
+    // Ambil data
+    var selected = document.getElementById("catFilter").value
+    var filterResult = arrProduct
+
+    // Filter data
+    // selected = "All"
+    // val = { category: 'Electronic' , name: "Headphone"}
+    if (selected != "All"){
+        filterResult = arrProduct.filter((val) => {
+            return val.category == selected
+        })
+    }
+
+    // Render data
+    renderFilter(filterResult)
+}
+
+renderList()
