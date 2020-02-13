@@ -7,9 +7,9 @@ var arrProduct = [
 
 var arrCategory = ["All", "Fast Food", "Electronic", "Cloth", "Fruit"];
 
-var renderList = () => {
+var renderList = (data) => {
     // Mapping product
-    var resProduct = arrProduct.map((obj) => {
+    var resProduct = data.map((obj) => {
         return `
             <tr>
                 <td>${obj.id}</td>
@@ -17,6 +17,12 @@ var renderList = () => {
                 <td>${obj.name}</td>
                 <td>${obj.price}</td>
                 <td>${obj.stock}</td>
+                <td>
+                    <input onclick="funDelete(${obj.id})" type="button" value="Delete">
+                </td>
+                <td>
+                    <input onclick="funEdit()" type="button" value="Edit">
+                </td>
             </tr>
         `
     })
@@ -32,24 +38,6 @@ var renderList = () => {
     // render category
     document.getElementById('catFilter').innerHTML = resCategory
     document.getElementById('catInput').innerHTML = resCategory
-}
-
-var renderFilter = (data) => {
-    // Mapping product
-    var resProduct = data.map((obj) => {
-        return `
-            <tr>
-                <td>${obj.id}</td>
-                <td>${obj.category}</td>
-                <td>${obj.name}</td>
-                <td>${obj.price}</td>
-                <td>${obj.stock}</td>
-            </tr>
-        `
-    })
-
-    // render product
-    document.getElementById('render').innerHTML = resProduct.join("")
 }
 
 // Input data
@@ -92,10 +80,11 @@ var funFilterName = () => {
     })
 
     // Render data
-    renderFilter(filterResult)
+    renderList(filterResult)
 
 }
 
+// Filter price
 var funFilterPrice = () => {
     // Ambil data
     var min = document.getElementById('min').value
@@ -115,9 +104,10 @@ var funFilterPrice = () => {
     } 
 
     // Render data
-    renderFilter(filterResult)
+    renderList(filterResult)
 }
 
+// Filter category
 var funFilterCategory = () => {
     // Ambil data
     var selected = document.getElementById("catFilter").value
@@ -133,7 +123,24 @@ var funFilterCategory = () => {
     }
 
     // Render data
-    renderFilter(filterResult)
+    renderList(filterResult)
 }
 
-renderList()
+// Button Delete
+var funDelete = (idx) => {
+    // Delete berdasarkan id
+    arrProduct = arrProduct.filter((val) => {
+        return val.id != idx
+    })
+
+    // Render data
+    renderList(arrProduct)
+
+}
+
+// Button Edit
+var funEdit = (idx) => {
+    // Change to text box
+}
+
+renderList(arrProduct)
