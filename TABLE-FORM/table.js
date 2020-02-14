@@ -7,6 +7,9 @@ var arrProduct = [
 
 var arrCategory = ["All", "Fast Food", "Electronic", "Cloth", "Fruit"];
 
+var arrCart = []
+
+// Render List
 var fnRenderList = (data, idx) => {
     // Mapping product
     var resProduct = data.map((obj) => {
@@ -16,15 +19,18 @@ var fnRenderList = (data, idx) => {
             return `
                 <tr>
                     <td>${obj.id}</td>
-                    <td>${obj.category}</td>
+                    <td><input disabled type="text" value="${obj.category}"></td>
                     <td><input id="nameEdit" type="text" value="${obj.name}"></td>
                     <td><input id="priceEdit" type="text" value="${obj.price}"></td>
                     <td><input id="stockEdit" type="text" value="${obj.stock}"></td>
                     <td>
-                        <input onclick="funSave(${obj.id})" type="button" value="Save">
+                        <input disabled type="button" value="Add">
                     </td>
                     <td>
-                        <input onclick="funEditCancel()" type="button" value="Cancel">
+                        <input onclick="fnSave(${obj.id})" type="button" value="Save">
+                    </td>
+                    <td>
+                        <input onclick="fnEditCancel()" type="button" value="Cancel">
                     </td>
                 </tr>
             `
@@ -39,13 +45,13 @@ var fnRenderList = (data, idx) => {
                     <td>${obj.price}</td>
                     <td>${obj.stock}</td>
                     <td>
-                        <input onclick="funBuy(${obj.id})" type="button" value="Buy">
+                        <input onclick="fnAdd(${obj.id})" type="button" value="Add">
                     </td>
                     <td>
-                        <input onclick="funDelete(${obj.id})" type="button" value="Delete">
+                        <input onclick="fnDelete(${obj.id})" type="button" value="Delete">
                     </td>
                     <td>
-                        <input onclick="funEditCancel(${obj.id})" type="button" value="Edit">
+                        <input onclick="fnEditCancel(${obj.id})" type="button" value="Edit">
                     </td>
                 </tr>
             `
@@ -65,9 +71,24 @@ var fnRenderList = (data, idx) => {
     document.getElementById('catInput').innerHTML = resCategory
 }
 
-// Button buy
-var funBuy = (idx) => {
-    alert(idx)
+// Render Cart
+var fnRenderCart = () => {
+    var listCart = arrCart.map((obj) => {
+        return `
+            <tr>
+                <td>${obj.id}</td>
+                <td>${obj.category}</td>
+                <td>${obj.name}</td>
+                <td>${obj.price}</td>
+                <td>
+                    <input onclick="fnDeleteCart(${obj.id})" type="button" value="Delete">
+                </td>
+            </tr>
+        `
+    })
+
+    document.getElementById('cart').innerHTML = listCart.join('')
+
 }
 
 // Render Filter
@@ -224,6 +245,34 @@ var fnSave = (idx) => {
     fnRenderList(arrProduct)
 }
 
+// Button delete cart
+var fnDeleteCart = (idx) => {
+    // Delete berdasarkan id
+    arrCart = arrCart.filter((val) => {
+       return val.id != idx
+   })
+
+   // Render data
+   fnRenderCart()
+
+}
+
+// Button add
+var fnAdd = (idx) => {
+   // temukan product terpilih
+   var selectedProduct = arrProduct.find((val) => {return val.id == idx})
+   
+   // tambahkan product tersebut ke cart
+   arrCart.push(selectedProduct)
+
+   // render cart
+   fnRenderCart()
+}
+
+// Button Payment
+var fnPayment = () => {
+    
+}
 
 
 
