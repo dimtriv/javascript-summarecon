@@ -39,6 +39,9 @@ var fnRenderList = (data, idx) => {
                     <td>${obj.price}</td>
                     <td>${obj.stock}</td>
                     <td>
+                        <input onclick="funBuy(${obj.id})" type="button" value="Buy">
+                    </td>
+                    <td>
                         <input onclick="funDelete(${obj.id})" type="button" value="Delete">
                     </td>
                     <td>
@@ -60,6 +63,11 @@ var fnRenderList = (data, idx) => {
     // render category
     document.getElementById('catFilter').innerHTML = resCategory
     document.getElementById('catInput').innerHTML = resCategory
+}
+
+// Button buy
+var funBuy = (idx) => {
+    alert(idx)
 }
 
 // Render Filter
