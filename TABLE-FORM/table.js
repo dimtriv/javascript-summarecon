@@ -271,7 +271,26 @@ var fnAdd = (idx) => {
 
 // Button Payment
 var fnPayment = () => {
-    
+    //  Bikin list
+    var listPayment = arrCart.map((val) => {
+        return `<p>${val.id} | ${val.category} | ${val.name} | ${val.price}</p> `
+    })
+
+    //  Hitung total awal, ppn, total akhir
+    var subTotal = 0
+    for(var i = 0; i < arrCart.length; i++){
+        subTotal += arrCart[i].price
+    }
+
+    var ppn = subTotal * 0.1
+    var finalTotal = subTotal + ppn
+
+    //  tampilkan total awal, ppn, total akhir
+    var listDetail = listPayment.join('')
+    var listTotal = `<h3>Subtotal : ${subTotal}</h3><h3>ppn : ${ppn}</h3><h3>Final : ${finalTotal}</h3>`
+    var finalList = listDetail + listTotal
+    document.getElementById('payment').innerHTML = finalList
+
 }
 
 
