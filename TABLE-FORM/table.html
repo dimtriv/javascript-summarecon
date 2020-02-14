@@ -22,10 +22,10 @@
         <!-- FILTER -->
         <fieldset>
             <legend>Filter</legend>
-            <p>Nama : <input oninput="funFilterName()" type="text" id="keyword" ></p>
-            <p>Harga: <input oninput="funFilterPrice()" type="number" id="min"> - <input oninput="funFilterPrice()" type="number" id="max"></p>
+            <p>Nama : <input oninput="fnFilterName()" type="text" id="keyword" ></p>
+            <p>Harga: <input oninput="fnFilterPrice()" type="number" id="min"> - <input oninput="fnFilterPrice()" type="number" id="max"></p>
             <p>Category : 
-                <select onchange="funFilterCategory()" id="catFilter"> 
+                <select onchange="fnFilterCategory()" id="catFilter"> 
 
                 </select>
             </p>
@@ -46,7 +46,7 @@
                     <td><input type="text" placeholder="stock" id="stock"></td>
                 </tr>
             </table>
-            <p><input type="button" value="Input" onclick="funInputData()"></p>
+            <p><input type="button" value="Input" onclick="fnInputData()"></p>
         </fieldset>
 
         <!-- RENDER -->
