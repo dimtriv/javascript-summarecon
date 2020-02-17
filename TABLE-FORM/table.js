@@ -12,13 +12,14 @@ var arrCart = []
 // Render List
 var fnRenderList = (data, idx) => {
     // Mapping product
+    // obj : {id, category, name, price, stock}
     var resProduct = data.map((obj) => {
         // jika id product sama dengan idx
         if(obj.id == idx){
             // Textbox
             return `
                 <tr>
-                    <td>${obj.id}</td>
+                    <td>${obj}</td>
                     <td><input disabled type="text" value="${obj.category}"></td>
                     <td><input id="nameEdit" type="text" value="${obj.name}"></td>
                     <td><input id="priceEdit" type="text" value="${obj.price}"></td>
@@ -59,6 +60,7 @@ var fnRenderList = (data, idx) => {
     })
 
     // Mapping category
+    // val : "All" atau "Fast Food" atau "Cloth" dll
     var resCategory = arrCategory.map((val) => {
         return `<option>${val}</option>`
     })
@@ -73,6 +75,10 @@ var fnRenderList = (data, idx) => {
 
 // Render Cart
 var fnRenderCart = () => {
+    // Mapping cart
+    // obj = {id, category, name, price, stock}
+    // akses nama = obj.name
+    // akses harga = obj.price
     var listCart = arrCart.map((obj) => {
         return `
             <tr>
@@ -80,6 +86,7 @@ var fnRenderCart = () => {
                 <td>${obj.category}</td>
                 <td>${obj.name}</td>
                 <td>${obj.price}</td>
+                <td>${obj.qty}</td>
                 <td>
                     <input onclick="fnDeleteCart(${obj.id})" type="button" value="Delete">
                 </td>
@@ -259,12 +266,28 @@ var fnDeleteCart = (idx) => {
 
 // Button add
 var fnAdd = (idx) => {
-   // temukan product terpilih
+   // temukan product terpilih di arrProduct
    var selectedProduct = arrProduct.find((val) => {return val.id == idx})
    
-   // tambahkan product tersebut ke cart
-   arrCart.push(selectedProduct)
+    // Cek apakah sudah ada di cart ?
+    // temukan product terpilih di arrCart
+    // Jika tidak ditemukan, akan me return 'undefined'
+    var foundCart = arrCart.find((val) => {return val.id == idx})
 
+    // Jika product terpilih tidak ada di dalam cart
+    if(foundCart == undefined){
+        // tambahkan product tersebut ke cart
+        arrCart.push({...selectedProduct, qty : 1})
+    } else {
+        // Temukan index product terpilih di arrCart
+        var foundIdx = arrCart.findIndex(val => val.id == idx)
+
+        // Update qty
+        // arrCart[foundIdx] = {id, category, name, price, stock, qty}
+        arrCart[foundIdx].qty ++
+    }
+
+   
    // render cart
    fnRenderCart()
 }
