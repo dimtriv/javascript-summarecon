@@ -296,13 +296,13 @@ var fnAdd = (idx) => {
 var fnPayment = () => {
     //  Bikin list
     var listPayment = arrCart.map((val) => {
-        return `<p>${val.id} | ${val.category} | ${val.name} | ${val.price}</p> `
+        return `<p>${val.id} | ${val.category} | ${val.name} | ${val.price} x ${val.qty} = ${val.price * val.qty}</p> `
     })
 
     //  Hitung total awal, ppn, total akhir
     var subTotal = 0
     for(var i = 0; i < arrCart.length; i++){
-        subTotal += arrCart[i].price
+        subTotal += arrCart[i].price * arrCart[i].qty
     }
 
     var ppn = subTotal * 0.1
